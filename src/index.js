@@ -22,11 +22,12 @@ const genDiff = (firstObject, secondObject) => {
     }
   });
   const tmp = getDiff.flat();
-  const json = JSON.stringify(tmp, null, 2);
-  return json.replace(/\[|\]/gm, function replace(el) {
-    if (el === ']') return '}';
-    return '{';
-  });
+  return `{\n ${tmp.join('\n ')}\n}`;
+//  const json = JSON.stringify(tmp, null, 2);
+//  return json.replace(/\[|\]/gm, function replace(el) {
+//    if (el === ']') return '}';
+//    return '{';
+//  });
 };
 
 export default (filePath1, filePath2) => {
