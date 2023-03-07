@@ -3,6 +3,7 @@ import * as url from 'url';
 import path from 'node:path';
 import fs from 'fs';
 
+
 test('gendiff', () => {
   const __filename = url.fileURLToPath(import.meta.url);
   const __dirname = new URL(".", import.meta.url).pathname;
@@ -20,4 +21,4 @@ test('gendiff', () => {
   const expectedJSON = readFile('expected_json.txt');
   expect(gendiff(JSON.parse(file1), JSON.parse(file2))).toEqual(JSON.parse(expectedJSON));
 });
-
+//export default getFixturePath;

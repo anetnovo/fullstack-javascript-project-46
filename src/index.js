@@ -23,19 +23,20 @@ const genDiff = (firstObject, secondObject) => {
   });
   const tmp = getDiff.flat();
   return `{\n ${tmp.join('\n ')}\n}`;
-//  const json = JSON.stringify(tmp, null, 2);
-//  return json.replace(/\[|\]/gm, function replace(el) {
-//    if (el === ']') return '}';
-//    return '{';
-//  });
 };
 
-export default (filePath1, filePath2) => {
-  const getData = (filePath) => {
-    const data = fs.readFileSync(path.join(process.cwd(), '__fixtures__', filePath), 'utf-8');
-    return JSON.parse(data);
-  };
+const getData = (filePath) => {
+  const absolutePath = path.resolve(process.cwd(), filePath);
+//  console.log( typeof filePath)
+//  const absolutePath = path.join(process.cwd(), '__fixtures__', filePath);
+  const data = fs.readFileSync(absolutePath, 'utf-8');
+  return JSON.parse(data);
+ };
 
+export default (filePath1, filePath2) => {
+   // const data = fs.readFileSync(path.join(process.cwd(), '__fixtures__', filePath), 'utf-8');
+   // const data = fs.readFileSync(path.resolve(process.cwd(), filePath), 'utf-8');
+//   console.log(typeof process.cwd())
   const firstObj = getData(filePath1);
   const secondObj = getData(filePath2);
   return genDiff(firstObj, secondObj);
