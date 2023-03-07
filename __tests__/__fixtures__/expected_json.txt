@@ -1,8 +1,9 @@
 {
-  - four: 4
-    two: two
-  - one: one
-  + one: eon   
-  - three: three    
-  + three: 3                                                                                                     
- }  
+ - 4: four
+ + four: 4
+ - one: eon
+ + one: one
+ - three: 3
+ + three: three
+   two: two
+}
